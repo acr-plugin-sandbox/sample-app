@@ -15,6 +15,12 @@ class SessionRepository(
         }
     }
 
+    /** Restores the session and returns the name of its user. */
+    suspend fun refreshNow(): String {
+        cachedUser = sessionManager.refresh()?.userName
+        return cachedUser!!
+    }
+
     fun requireUser(): String = checkNotNull(cachedUser) { "warmUp() must run first" }
 
     fun authHeader(): String = "Bearer ${sessionManager.legacyToken()}"
