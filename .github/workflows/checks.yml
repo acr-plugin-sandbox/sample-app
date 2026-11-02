@@ -32,3 +32,10 @@ jobs:
           persist-credentials: false
       - name: sources are present
         run: test -n "$(find . -name '*.kt' -not -path './.git/*' | head -n 1)"
+
+  instrumented:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - name: simulate a long instrumented test run
+        run: sleep 2700
