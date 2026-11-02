@@ -15,7 +15,7 @@ import com.example.sample.FeatureFlags
 @Composable
 fun HomeScreen(viewModel: HomeViewModel = viewModel()) {
     val state by viewModel.state.collectAsState()
-    Column(modifier = Modifier.padding(16.dp)) {
+    Column(modifier = Modifier.padding(24.dp)) { 
         Text(text = state.title, style = MaterialTheme.typography.headlineSmall)
         if (FeatureFlags.SHOW_UPGRADE_BANNER) {
             Text(text = "Upgrade to unlock offline mode")
