@@ -18,7 +18,7 @@ fun HomeScreen(viewModel: HomeViewModel = viewModel()) {
     Column(modifier = Modifier.padding(16.dp)) {
         Text(text = state.title, style = MaterialTheme.typography.headlineSmall)
         if (FeatureFlags.SHOW_UPGRADE_BANNER) {
-            Text(text = "Upgrade to unlock offline mode")
+            Text(text = "Upgrade to unlock offline mode and sync")
         }
     }
 }
