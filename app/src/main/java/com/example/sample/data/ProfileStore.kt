@@ -7,6 +7,8 @@ class ProfileStore(context: Context) {
 
     fun displayName(): String = prefs.getString("display_name", null)!!
 
+    fun initials(): String = prefs.getString("display_name", null)!!.take(2)
+
     fun saveDisplayName(name: String) {
         prefs.edit().putString("display_name", name).apply()
     }
