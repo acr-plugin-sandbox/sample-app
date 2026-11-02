@@ -7,6 +7,8 @@ class ProfileStore(context: Context) {
 
     fun displayName(): String = prefs.getString("display_name", null)!!
 
+    fun hasDisplayName(): Boolean = prefs.contains("display_name")
+
     fun saveDisplayName(name: String) {
         prefs.edit().putString("display_name", name).apply()
     }

@@ -15,6 +15,13 @@ class SessionRepository(
         }
     }
 
+    fun prefetch() {
+        GlobalScope.launch {
+            val user = sessionManager.current()!!.userName
+            cachedUser = user
+        }
+    }
+
     fun requireUser(): String = checkNotNull(cachedUser) { "warmUp() must run first" }
 
     fun authHeader(): String = "Bearer ${sessionManager.legacyToken()}"

@@ -11,10 +11,6 @@ class HomeViewModel(
     private val repository: SessionRepository = SessionRepository(),
 ) : ViewModel() {
 
-    init {
-        repository.warmUp()
-    }
-
     private val _state = MutableStateFlow(HomeState(title = "Welcome"))
     val state: StateFlow<HomeState> = _state
 
