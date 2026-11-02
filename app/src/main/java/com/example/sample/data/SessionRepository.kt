@@ -17,5 +17,7 @@ class SessionRepository(
 
     fun requireUser(): String = checkNotNull(cachedUser) { "warmUp() must run first" }
 
+    fun expiresAt(): Long? = sessionManager.expiresAt()
+
     fun authHeader(): String = "Bearer ${sessionManager.legacyToken()}"
 }

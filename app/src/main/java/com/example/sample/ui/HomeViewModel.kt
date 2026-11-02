@@ -33,4 +33,4 @@ class HomeViewModel(
     }
 }
 
-data class HomeState(val title: String)
+data class HomeState(val title: String, val expiresAtMillis: Long? = null)
